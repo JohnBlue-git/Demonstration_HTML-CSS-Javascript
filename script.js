@@ -1,5 +1,6 @@
 const userList = document.getElementById('userList');
 const userForm = document.getElementById('userForm');
+const $slider = document.getElementById('slider');
 
 // Default users
 const defaultUsers = [
@@ -10,7 +11,13 @@ const defaultUsers = [
 // Function to render users
 function renderUsers(users) {
   userList.innerHTML = '';
-  users.forEach((user, index) => {
+  
+  // Filter users with age threshold
+  const $slider = document.getElementById('slider');
+	const filteredUsers = users.filter(user => user.age >= $slider.value1 && user.age <= $slider.value2);
+	
+  // create row and fill in user data
+  filteredUsers.forEach((user, index) => {
     const row = document.createElement('tr');
     row.innerHTML = `
                 <td>${user.name}</td>
@@ -29,6 +36,13 @@ renderUsers(defaultUsers);
 // Handle form submission
 userForm.addEventListener('submit', (event) => {
   event.preventDefault();
+  
+  if (userForm.age.value < 0 || userForm.age.value > 150) {
+    alert("Please enter an age between 0 and 150.");
+    event.preventDefault(); // Prevent form submission
+    return;
+  }
+  
   const newUser = {
     name: userForm.name.value,
     age: userForm.age.value,
@@ -42,6 +56,12 @@ userForm.addEventListener('submit', (event) => {
 
   // Reset form fields
   userForm.reset();
+});
+
+// Handle slider
+$slider.addEventListener('change', (event) => {
+	event.preventDefault();
+	renderUsers(defaultUsers);
 });
 
 // Function to delete a user
