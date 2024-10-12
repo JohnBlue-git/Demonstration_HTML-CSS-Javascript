@@ -8,9 +8,9 @@
 </head>
 <body>
 
-<h2>User Form:</h2>
+<h2>Add User Form:</h2>
 
-<form action="#" method="POST">
+<form id="userForm" action="#" method="POST">
     <div class="form-group">
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" required>
@@ -18,7 +18,7 @@
 
     <div class="form-group">
         <label for="age">Age:</label>
-        <input type="text" id="age" name="age" required>
+        <input type="text" id="age" name="age" min="0" max="150" required>
     </div>
 
     <div class="form-group">
@@ -40,6 +40,7 @@
         <label for="country">Country:</label>
         <select id="country" name="country" required>
             <option value="">Select a country</option>
+            <option value="TAIWAN">Taiwan</option>
             <option value="USA">United States</option>
             <option value="CANADA">Canada</option>
             <option value="UK">United Kingdom</option>
@@ -54,6 +55,22 @@
 </form>
 
 <h2>List Users:</h2>
+
+<tc-range-slider 
+  id="slider"
+  min="0" 
+  max="150" 
+  value1="10"
+  value2="100"
+  generate-labels-units=" years"
+  generate-labels="true">   
+</tc-range-slider>
+<script 
+  src="https://cdn.jsdelivr.net/npm/toolcool-range-slider/dist/plugins/tcrs-generated-labels.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/toolcool-range-slider/dist/toolcool-range-slider.min.js"></script>
+
+</br>
+
 <table id="userTable">
     <thead>
         <tr>
