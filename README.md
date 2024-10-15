@@ -12,7 +12,7 @@ Demonstration on web program with plain HTML / CSS / Javascript.
 - [x] select
 - [x] button
 - [x] table
-- [ ] list
+- [x] list
 - [ ] file
 
 ### form
