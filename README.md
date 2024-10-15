@@ -2,8 +2,11 @@
 Demonstration on web program with plain HTML / CSS / Javascript.
 
 ## Run on fiddle
-website:
+
+### Website
 https://jsfiddle.net/
+
+### Demo
 <img width="1440" alt="run_on_fiddle" src="run_on_fiddle.png">
 
 ## Features used
